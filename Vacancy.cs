@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,27 +10,35 @@ using System.IO;
 
 namespace WorkLink
 {
-  class Vacancy : IObserver
+  public class Vacancy : IObserver
   {
+    public int ID;
     public string VacancyType;
     public string Name;
-    public int Salary;
-    public string[] RequiredSkills;
+    public long Salary;
+    public string RequiredSkills;
     public string Details;
     public string Company;
     public double CompanyRating;
 
     public void Update()
     {
-      Console.WriteLine("Новая вакансия добавлена");
+      MessageBox.Show("Новая вакансия добавлена");
     }
 
-    public Panel CreatePanelVacancy(string NameVacancy, string Details, int Salary)
+    public Panel CreatePanelVacancy(int Item, string NameVacancy, string Details, long Salary)
     {
       Button Button = new Button();
       Button.Text = "Рассмотреть вакансию";
       Button.Dock = DockStyle.Right;
       Button.BackColor = Color.BurlyWood;
+      Button.Click += SeeVacancy;
+
+      void SeeVacancy(object sender, EventArgs e)
+      {
+        Form3 WatchVacancyForm = new Form3(Item);
+        WatchVacancyForm.Show();
+      }
 
       Label name = new Label();
       name.Text = NameVacancy;
