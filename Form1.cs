@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,8 +17,6 @@ namespace WorkLink
     string JsonFileName;
     List<Vacancy> VacanciList;
     List<Vacancy> VacanciesToView;
-
-    Vacancy v = new ProgrammerVacancy();
     public int key = 0;
     public Form1()
     {
@@ -26,12 +24,39 @@ namespace WorkLink
       VacanciList = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
       VacanciesToView = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
       InitializeComponent();
+      
+      string JsonResumeFileName = "Resume.json";
+      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
+
+      if (Resume.AcceptedVacancies.Count > 0)
+      {
+        label3.Text = Resume.AcceptedVacancies.Count.ToString();
+        label3.Visible = true;
+      }
+    }
+
+    public Form1(Resume SampleResume)
+    {
+      JsonFileName = "vacancies.json";
+      VacanciList = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
+      VacanciesToView = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
+      InitializeComponent();
+
+      string JsonResumeFileName = "Resume.json";
+      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
+
+      if (Resume.AcceptedVacancies.Count > 0)
+      {
+        label3.Text = Resume.AcceptedVacancies.Count.ToString();
+        label3.Visible = true;
+      }
+
+      SampleResume.NotifyObserver();
+      SampleResume.RemoveObserver();
     }
 
     private void Form1_Load(object sender, EventArgs e)
-    {
-
-    }
+    {   }
 
     private void FilterByProfession(string VacancyType)
     {
@@ -47,7 +72,7 @@ namespace WorkLink
       key = 0;
       while (key < 5 && key >= 0 && key < VacanciesToView.Count)
       {
-        Panel panel = v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+        Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
         tableLayoutPanel1.Controls.Add(panel);
         ++key;
       }
@@ -56,15 +81,15 @@ namespace WorkLink
     private void button1_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form2 ewrg = new Form2();
-      ewrg.Show();
+      Form2 ResumeForm = new Form2();
+      ResumeForm.Show();
     }
 
     private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
     {
       while (key < 5 && key >= 0 && key < VacanciesToView.Count)
       {
-        Panel panel =  v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+        Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
         tableLayoutPanel1.Controls.Add(panel);
         ++key;
       }
@@ -77,22 +102,15 @@ namespace WorkLink
       if(key >= VacanciesToView.Count)
       {
         int key2 = key;
-        if(key == VacanciesToView.Count && key < 5)
+
+        if(key % 5 != 0)
         {
-          key = 0;
-        } else
-        {
-          if (key % 5 == 0)
-          {
-            key -= 5;
-          } else
-          {
-            key = key + 5 - VacanciesToView.Count;
-          }
+          key -= key % 5;
         }
+
         while (key < key2 && key >= 0 && key < VacanciesToView.Count)
         {
-          Panel panel = v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
           tableLayoutPanel1.Controls.Add(panel);
           ++key;
         }
@@ -102,7 +120,7 @@ namespace WorkLink
         int key2 = key + 5;
         while (key < key2 && key >= 0 && key < VacanciesToView.Count)
         {
-          Panel panel = v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
           tableLayoutPanel1.Controls.Add(panel);
           ++key;
         }
@@ -119,7 +137,7 @@ namespace WorkLink
         key = 0;
         while (key < key2 && key >= 0 && key < VacanciesToView.Count)
         {
-          Panel panel = v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
           tableLayoutPanel1.Controls.Add(panel);
           ++key;
         }
@@ -131,12 +149,18 @@ namespace WorkLink
           key -= VacanciesToView.Count;
         } else
         {
-          key -= 10;
+          if(key % 5 != 0)
+          {
+            key = key - 5 - (key % 5);
+          } else
+          {
+            key -= 10;
+          }
         }
         int key2 = key + 5;
         while (key < key2 && key >= 0 && key < VacanciesToView.Count)
         {
-          Panel panel = v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
           tableLayoutPanel1.Controls.Add(panel);
           ++key;
         }
@@ -155,7 +179,7 @@ namespace WorkLink
           key = 0;
           while (key < 5 && key >= 0 && key < VacanciesToView.Count)
           {
-            Panel panel = v.CreatePanelVacancy(VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
+            Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
             tableLayoutPanel1.Controls.Add(panel);
             ++key;
           }
@@ -207,6 +231,18 @@ namespace WorkLink
     private void label2_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void label3_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void button6_Click(object sender, EventArgs e)
+    {
+      this.Hide();
+      Form4 CreationVacancyForm = new Form4();
+      CreationVacancyForm.Show();
     }
   }
 }

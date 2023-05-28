@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,8 +51,8 @@ namespace WorkLink
     private void button1_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form1 ewrg1 = new Form1();
-      ewrg1.Show();
+      Form1 Form = new Form1();
+      Form.Show();
     }
 
     private void label1_Click_1(object sender, EventArgs e)
@@ -132,9 +132,9 @@ namespace WorkLink
 
     private void button2_Click(object sender, EventArgs e)
     {
-      if(textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && textBox6.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox9.Text != "" && textBox8.Text != "")
+      if(textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && numericUpDown2.Value.ToString() != "" && textBox2.Text != "" && numericUpDown3.Value.ToString() != "" && textBox9.Text != "" && textBox8.Text != "")
       {
-        Resume = invoker.Run(textBox1.Text, textBox4.Text, textBox5.Text, dateTimePicker1.Text, comboBox1.Text, textBox7.Text, Convert.ToInt64(textBox6.Text), textBox2.Text, Convert.ToInt64(textBox3.Text), textBox9.Text, textBox8.Text);
+        Resume = invoker.Run(textBox1.Text, textBox4.Text, textBox5.Text, dateTimePicker1.Text, comboBox1.Text, textBox7.Text, Convert.ToInt64(numericUpDown2.Value), textBox2.Text, Convert.ToInt64(numericUpDown3.Value), textBox9.Text, textBox8.Text);
         EditResume(Resume);
       }
       else
@@ -173,17 +173,7 @@ namespace WorkLink
 
     }
 
-    private void textBox6_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
     private void textBox2_TextChanged(object sender, EventArgs e)
-    {
-
-    }
-
-    private void textBox3_TextChanged(object sender, EventArgs e)
     {
 
     }
@@ -206,7 +196,7 @@ namespace WorkLink
 
     private void button4_Click(object sender, EventArgs e)
     {
-      if (textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && textBox6.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox9.Text != "" && textBox8.Text != "")
+      if (textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && numericUpDown2.Value.ToString() != "" && textBox2.Text != "" && numericUpDown3.Value.ToString() != "" && textBox9.Text != "" && textBox8.Text != "")
       {
         Resume = invoker.Accept();
         EditResume(Resume);
@@ -233,6 +223,16 @@ namespace WorkLink
     }
 
     private void label26_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void numericUpDown3_ValueChanged(object sender, EventArgs e)
     {
 
     }

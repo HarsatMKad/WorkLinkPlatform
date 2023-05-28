@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +13,9 @@ namespace WorkLink
 
   interface IObservable
   {
-    void AddVacancies(Vacancy o);
-    void RemoveVacancies(Vacancy o);
-    void NotifyObservers();
+    void AddObserver(Vacancy o);
+    void RemoveObserver();
+    void NotifyObserver();
   }
 
 }

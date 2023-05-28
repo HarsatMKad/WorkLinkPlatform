@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WorkLink
 {
-  class Resume : IObservable
+  public class Resume : IObservable
   {
     private List<IObserver> Observers;
 
@@ -23,9 +23,13 @@ namespace WorkLink
     public string AdditionalInfo;
     public List<Vacancy> AcceptedVacancies;
 
-    public Resume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
+    public Resume()
     {
       Observers = new List<IObserver>();
+    }
+
+    public Resume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
+    {
       AcceptedVacancies = new List<Vacancy>();
       this.LastNameFirstName = LastNameFirstName;
       this.Citizenship = Citizenship;
@@ -40,22 +44,22 @@ namespace WorkLink
       this.AdditionalInfo = AdditionalInfo;
     }
 
-    public void AddVacancies(Vacancy Vacancy)
+    public void AddObserver(Vacancy Vacancy)
     {
-      AcceptedVacancies.Add(Vacancy);
       Observers.Add(Vacancy);
     }
 
-    public void RemoveVacancies(Vacancy Vacancy)
+    public void RemoveObserver()
     {
-      AcceptedVacancies.Remove(Vacancy);
-      Observers.Remove(Vacancy);
+      Observers.Clear();
     }
 
-    public void NotifyObservers()
+    public void NotifyObserver()
     {
       foreach (IObserver observer in Observers)
+      {
         observer.Update();
+      }
     }
   }
 }
