@@ -10,20 +10,20 @@ namespace WorkLink
   {
     private List<IObserver> Observers;
 
-    string LastNameFirstName;
-    string Citizenship;
-    string Address;
-    string DateBirth;
-    string Sex;
-    string EducationInfo;
-    long PhoneNumber;
-    string Mail;
-    int DesiredSalary;
-    string[] Skills;
-    string AdditionalInfo;
+    public string LastNameFirstName;
+    public string Citizenship;
+    public string Address;
+    public string DateBirth;
+    public string Sex;
+    public string EducationInfo;
+    public long PhoneNumber;
+    public string Mail;
+    public long DesiredSalary;
+    public string Skills;
+    public string AdditionalInfo;
     public List<Vacancy> AcceptedVacancies;
 
-    public Resume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, int DesiredSalary, string[] Skills, string AdditionalInfo)
+    public Resume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
     {
       Observers = new List<IObserver>();
       AcceptedVacancies = new List<Vacancy>();
