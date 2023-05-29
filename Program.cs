@@ -10,10 +10,7 @@ namespace WorkLink
   {
     static void Main(string[] args)
     {
-
-    Application.Run(new Form1());
-    
-      Console.ReadKey();
+      Application.Run(new Form1());
     }
   }
 }

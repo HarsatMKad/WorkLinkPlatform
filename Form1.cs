@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,8 +17,8 @@ namespace WorkLink
     string JsonFileName;
     List<Vacancy> VacanciList;
     List<Vacancy> VacanciesToView;
-    public int key = 0;
-    
+    private int key = 0;
+
     public Form1()
     {
       FormStart();
@@ -62,6 +62,7 @@ namespace WorkLink
 
       void SeeVacancy(object sender, EventArgs e)
       {
+        this.Hide();
         Form3 WatchVacancyForm = new Form3(VacanciesToView[key].ID);
         WatchVacancyForm.Show();
       }
@@ -146,16 +147,13 @@ namespace WorkLink
     private void button2_Click(object sender, EventArgs e)
     {
       tableLayoutPanel1.Controls.Clear();
-
       if(key >= VacanciesToView.Count)
       {
         int key2 = key;
-
         if(key % 5 != 0)
         {
           key -= key % 5;
         }
-
         CreateVacancy(key2);
         MessageBox.Show("конец списка");
       } else
@@ -168,7 +166,6 @@ namespace WorkLink
     private void button3_Click(object sender, EventArgs e)
     {
       tableLayoutPanel1.Controls.Clear();
-
       if (key <= 5 )
       {
         int key2 = key;
@@ -268,6 +265,13 @@ namespace WorkLink
       this.Hide();
       Form4 CreationVacancyForm = new Form4();
       CreationVacancyForm.Show();
+    }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      this.Hide();
+      Form7 InterviewSchedule = new Form7();
+      InterviewSchedule.Show();
     }
   }
 }

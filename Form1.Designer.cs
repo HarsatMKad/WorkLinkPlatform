@@ -36,11 +36,11 @@ namespace WorkLink
       this.button4 = new System.Windows.Forms.Button();
       this.button5 = new System.Windows.Forms.Button();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.button6 = new System.Windows.Forms.Button();
+      this.label3 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
-      this.label3 = new System.Windows.Forms.Label();
-      this.button6 = new System.Windows.Forms.Button();
       this.panel1.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -125,6 +125,7 @@ namespace WorkLink
       this.button4.TabIndex = 5;
       this.button4.Text = "Расписание собеседований";
       this.button4.UseVisualStyleBackColor = false;
+      this.button4.Click += new System.EventHandler(this.button4_Click);
       // 
       // button5
       // 
@@ -153,6 +154,31 @@ namespace WorkLink
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(967, 734);
       this.panel1.TabIndex = 7;
+      // 
+      // button6
+      // 
+      this.button6.BackColor = System.Drawing.Color.BurlyWood;
+      this.button6.Location = new System.Drawing.Point(28, 685);
+      this.button6.Name = "button6";
+      this.button6.Size = new System.Drawing.Size(118, 26);
+      this.button6.TabIndex = 8;
+      this.button6.Text = "Создать вакансию";
+      this.button6.UseVisualStyleBackColor = false;
+      this.button6.Click += new System.EventHandler(this.button6_Click);
+      // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+      this.label3.ForeColor = System.Drawing.Color.OrangeRed;
+      this.label3.Location = new System.Drawing.Point(644, 12);
+      this.label3.MaximumSize = new System.Drawing.Size(20, 20);
+      this.label3.MinimumSize = new System.Drawing.Size(20, 20);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(20, 20);
+      this.label3.TabIndex = 7;
+      this.label3.Visible = false;
+      this.label3.Click += new System.EventHandler(this.label3_Click);
       // 
       // label2
       // 
@@ -193,31 +219,6 @@ namespace WorkLink
       this.comboBox1.TabIndex = 0;
       this.comboBox1.Text = "Без фильтра";
       this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-      // 
-      // label3
-      // 
-      this.label3.AutoSize = true;
-      this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-      this.label3.ForeColor = System.Drawing.Color.OrangeRed;
-      this.label3.Location = new System.Drawing.Point(644, 12);
-      this.label3.MaximumSize = new System.Drawing.Size(20, 20);
-      this.label3.MinimumSize = new System.Drawing.Size(20, 20);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(20, 20);
-      this.label3.TabIndex = 7;
-      this.label3.Visible = false;
-      this.label3.Click += new System.EventHandler(this.label3_Click);
-      // 
-      // button6
-      // 
-      this.button6.BackColor = System.Drawing.Color.BurlyWood;
-      this.button6.Location = new System.Drawing.Point(28, 685);
-      this.button6.Name = "button6";
-      this.button6.Size = new System.Drawing.Size(118, 26);
-      this.button6.TabIndex = 8;
-      this.button6.Text = "Создать вакансию";
-      this.button6.UseVisualStyleBackColor = false;
-      this.button6.Click += new System.EventHandler(this.button6_Click);
       // 
       // Form1
       // 

@@ -12,18 +12,15 @@ using Newtonsoft.Json;
 
 namespace WorkLink
 {
-  public partial class Form3 : Form
+  public partial class Form6 : Form
   {
-    int VacancyItem;
     Vacancy Vacancy;
-    public Form3(int Item)
+    public Form6(int Item)
     {
-      VacancyItem = Item;
       string JsonFileName = "vacancies.json";
       List<Vacancy> VacanciList = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
-      Vacancy = VacanciList[VacancyItem];
+      Vacancy = VacanciList[Item];
       InitializeComponent();
-      label1.Text = Vacancy.VacancyType;
       label2.Text = Vacancy.Name + "\n" + "Зарплата: " + Vacancy.Salary.ToString();
       label5.Text += Vacancy.Details;
       label6.Text = Vacancy.Company;
@@ -31,74 +28,44 @@ namespace WorkLink
       label4.Text += Vacancy.RequiredSkills;
     }
 
-    private void Form3_Load(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label4_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label7_Click(object sender, EventArgs e)
-    {
-
-    }
-
     private void panel3_Paint(object sender, PaintEventArgs e)
     {
 
     }
 
-    private void label2_Click(object sender, EventArgs e)
+    private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
     {
-
-    }
-
-    private void label1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label5_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void label6_Click(object sender, EventArgs e)
-    {
-
+      
     }
 
     private void button1_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form1 MainForm = new Form1();
-      MainForm.Show();
+      Form5 PreviousForm = new Form5();
+      PreviousForm.Show();
     }
 
     private void button2_Click(object sender, EventArgs e)
     {
-      string JsonFileName = "Resume.json";
-      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonFileName));
-      Resume.AcceptedVacancies.Add(Vacancy);
+      Interview Interview = new Interview();
+      Interview.Vacancy = Vacancy;
+      Interview.Date = dateTimePicker1.Text;
+      Interview.Time = maskedTextBox1.Text;
+
+      string JsonResumeFileName = "Resume.json";
+      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
+      Resume.Interviews.Add(Interview);
 
       JsonSerializer Serializer = new JsonSerializer();
-      using (StreamWriter Writer = new StreamWriter("Resume.json"))
+      using (StreamWriter Writer = new StreamWriter(JsonResumeFileName))
       {
         JsonTextWriter JsonWriter = new JsonTextWriter(Writer) { CloseOutput = false };
         Serializer.Serialize(JsonWriter, Resume);
       }
 
       this.Hide();
-      Form1 MainForm = new Form1();
-      MainForm.Show();
-    }
-
-    private void panel1_Paint(object sender, PaintEventArgs e)
-    {
-
+      Form5 PreviousForm = new Form5();
+      PreviousForm.Show();
     }
   }
 }

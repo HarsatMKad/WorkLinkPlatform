@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace WorkLink
 {
@@ -16,21 +18,26 @@ namespace WorkLink
     public string DateBirth;
     public string Sex;
     public string EducationInfo;
-    public long PhoneNumber;
+    public string PhoneNumber;
     public string Mail;
     public long DesiredSalary;
     public string Skills;
     public string AdditionalInfo;
     public List<Vacancy> AcceptedVacancies;
+    public List<Interview> Interviews;
 
     public Resume()
     {
       Observers = new List<IObserver>();
     }
 
-    public Resume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
+    public Resume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
     {
-      AcceptedVacancies = new List<Vacancy>();
+      string JsonResumeFileName = "Resume.json";
+      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
+
+      AcceptedVacancies = Resume.AcceptedVacancies;
+      Interviews = Resume.Interviews;
       this.LastNameFirstName = LastNameFirstName;
       this.Citizenship = Citizenship;
       this.Address = Address;

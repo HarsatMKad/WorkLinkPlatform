@@ -132,9 +132,9 @@ namespace WorkLink
 
     private void button2_Click(object sender, EventArgs e)
     {
-      if(textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && numericUpDown2.Value.ToString() != "" && textBox2.Text != "" && numericUpDown3.Value.ToString() != "" && textBox9.Text != "" && textBox8.Text != "")
+      if(textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && maskedTextBox1.Text != "" && textBox2.Text != "" && numericUpDown3.Value.ToString() != "" && textBox9.Text != "" && textBox8.Text != "")
       {
-        Resume = invoker.Run(textBox1.Text, textBox4.Text, textBox5.Text, dateTimePicker1.Text, comboBox1.Text, textBox7.Text, Convert.ToInt64(numericUpDown2.Value), textBox2.Text, Convert.ToInt64(numericUpDown3.Value), textBox9.Text, textBox8.Text);
+        Resume = invoker.Run(textBox1.Text, textBox4.Text, textBox5.Text, dateTimePicker1.Text, comboBox1.Text, textBox7.Text, maskedTextBox1.Text, textBox2.Text, Convert.ToInt64(numericUpDown3.Value), textBox9.Text, textBox8.Text);
         EditResume(Resume);
       }
       else
@@ -196,7 +196,7 @@ namespace WorkLink
 
     private void button4_Click(object sender, EventArgs e)
     {
-      if (textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && numericUpDown2.Value.ToString() != "" && textBox2.Text != "" && numericUpDown3.Value.ToString() != "" && textBox9.Text != "" && textBox8.Text != "")
+      if (textBox1.Text != "" && textBox4.Text != "" && textBox5.Text != "" && dateTimePicker1.Text != "" && comboBox1.Text != "" && textBox7.Text != "" && maskedTextBox1.Text != "" && textBox2.Text != "" && numericUpDown3.Value.ToString() != "" && textBox9.Text != "" && textBox8.Text != "")
       {
         Resume = invoker.Accept();
         EditResume(Resume);
@@ -233,6 +233,11 @@ namespace WorkLink
     }
 
     private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
     {
 
     }

@@ -60,6 +60,7 @@ namespace WorkLink
       this.button2 = new System.Windows.Forms.Button();
       this.label14 = new System.Windows.Forms.Label();
       this.panel2 = new System.Windows.Forms.Panel();
+      this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
       this.label25 = new System.Windows.Forms.Label();
       this.label24 = new System.Windows.Forms.Label();
       this.textBox9 = new System.Windows.Forms.TextBox();
@@ -83,14 +84,12 @@ namespace WorkLink
       this.button3 = new System.Windows.Forms.Button();
       this.button4 = new System.Windows.Forms.Button();
       this.label36 = new System.Windows.Forms.Label();
-      this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-      this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+      this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
       this.panel1.SuspendLayout();
       this.panel5.SuspendLayout();
       this.panel4.SuspendLayout();
       this.panel3.SuspendLayout();
       this.panel2.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
       this.SuspendLayout();
       // 
@@ -472,8 +471,8 @@ namespace WorkLink
       // 
       this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+      this.panel2.Controls.Add(this.maskedTextBox1);
       this.panel2.Controls.Add(this.numericUpDown3);
-      this.panel2.Controls.Add(this.numericUpDown2);
       this.panel2.Controls.Add(this.label25);
       this.panel2.Controls.Add(this.label24);
       this.panel2.Controls.Add(this.textBox9);
@@ -498,6 +497,19 @@ namespace WorkLink
       this.panel2.Name = "panel2";
       this.panel2.Size = new System.Drawing.Size(342, 457);
       this.panel2.TabIndex = 11;
+      // 
+      // numericUpDown3
+      // 
+      this.numericUpDown3.Location = new System.Drawing.Point(132, 203);
+      this.numericUpDown3.Maximum = new decimal(new int[] {
+            -1530494977,
+            232830,
+            0,
+            0});
+      this.numericUpDown3.Name = "numericUpDown3";
+      this.numericUpDown3.Size = new System.Drawing.Size(126, 20);
+      this.numericUpDown3.TabIndex = 24;
+      this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
       // 
       // label25
       // 
@@ -714,31 +726,14 @@ namespace WorkLink
       this.label36.Text = "Изменить ваше резюме";
       this.label36.Click += new System.EventHandler(this.label36_Click);
       // 
-      // numericUpDown2
+      // maskedTextBox1
       // 
-      this.numericUpDown2.Location = new System.Drawing.Point(113, 145);
-      this.numericUpDown2.Maximum = new decimal(new int[] {
-            -1530494977,
-            232830,
-            0,
-            0});
-      this.numericUpDown2.Name = "numericUpDown2";
-      this.numericUpDown2.Size = new System.Drawing.Size(122, 20);
-      this.numericUpDown2.TabIndex = 23;
-      this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-      // 
-      // numericUpDown3
-      // 
-      this.numericUpDown3.Location = new System.Drawing.Point(132, 203);
-      this.numericUpDown3.Maximum = new decimal(new int[] {
-            -1530494977,
-            232830,
-            0,
-            0});
-      this.numericUpDown3.Name = "numericUpDown3";
-      this.numericUpDown3.Size = new System.Drawing.Size(126, 20);
-      this.numericUpDown3.TabIndex = 24;
-      this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+      this.maskedTextBox1.Location = new System.Drawing.Point(113, 145);
+      this.maskedTextBox1.Mask = "+9 999 000-0000";
+      this.maskedTextBox1.Name = "maskedTextBox1";
+      this.maskedTextBox1.Size = new System.Drawing.Size(122, 20);
+      this.maskedTextBox1.TabIndex = 25;
+      this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
       // 
       // Form2
       // 
@@ -766,7 +761,6 @@ namespace WorkLink
       this.panel3.PerformLayout();
       this.panel2.ResumeLayout(false);
       this.panel2.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -829,6 +823,6 @@ namespace WorkLink
     private System.Windows.Forms.Panel panel4;
     private System.Windows.Forms.Panel panel5;
     private System.Windows.Forms.NumericUpDown numericUpDown3;
-    private System.Windows.Forms.NumericUpDown numericUpDown2;
+    private System.Windows.Forms.MaskedTextBox maskedTextBox1;
   }
 }

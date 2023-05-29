@@ -11,7 +11,7 @@ namespace WorkLink
   class Receiver
   {
     Resume Resume;
-    public Resume ChangeResume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
+    public Resume ChangeResume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
     {
       Resume = new Resume(LastNameFirstName, Citizenship, Address, DateBirth, Sex, EducationInfo, PhoneNumber, Mail, DesiredSalary, Skills, AdditionalInfo);
       return Resume;
@@ -39,7 +39,7 @@ namespace WorkLink
 
   abstract class Command
   {
-    public abstract Resume Execute(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo);
+    public abstract Resume Execute(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo);
 
     public abstract Resume Accept();
 
@@ -54,7 +54,7 @@ namespace WorkLink
     {
       receiver = r;
     }
-    public override Resume Execute(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
+    public override Resume Execute(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
     {
       Resume = receiver.ChangeResume(LastNameFirstName, Citizenship, Address, DateBirth, Sex, EducationInfo, PhoneNumber, Mail, DesiredSalary, Skills, AdditionalInfo);
       return Resume;
@@ -80,7 +80,7 @@ namespace WorkLink
     {
       command = c;
     }
-    public Resume Run(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, long PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
+    public Resume Run(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
     {
       Resume = command.Execute(LastNameFirstName, Citizenship, Address, DateBirth, Sex, EducationInfo, PhoneNumber, Mail, DesiredSalary, Skills, AdditionalInfo);
       return Resume;
