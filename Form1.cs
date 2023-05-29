@@ -247,7 +247,9 @@ namespace WorkLink
 
     private void button5_Click(object sender, EventArgs e)
     {
-
+      this.Hide();
+      Form5 ResumeForm = new Form5();
+      ResumeForm.Show();
     }
 
 
