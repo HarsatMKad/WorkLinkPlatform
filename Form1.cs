@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,38 +18,15 @@ namespace WorkLink
     List<Vacancy> VacanciList;
     List<Vacancy> VacanciesToView;
     public int key = 0;
+    
     public Form1()
     {
-      JsonFileName = "vacancies.json";
-      VacanciList = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
-      VacanciesToView = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
-      InitializeComponent();
-      
-      string JsonResumeFileName = "Resume.json";
-      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
-
-      if (Resume.AcceptedVacancies.Count > 0)
-      {
-        label3.Text = Resume.AcceptedVacancies.Count.ToString();
-        label3.Visible = true;
-      }
+      FormStart();
     }
 
     public Form1(Resume SampleResume)
     {
-      JsonFileName = "vacancies.json";
-      VacanciList = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
-      VacanciesToView = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
-      InitializeComponent();
-
-      string JsonResumeFileName = "Resume.json";
-      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
-
-      if (Resume.AcceptedVacancies.Count > 0)
-      {
-        label3.Text = Resume.AcceptedVacancies.Count.ToString();
-        label3.Visible = true;
-      }
+      FormStart();
 
       SampleResume.NotifyObserver();
       SampleResume.RemoveObserver();
@@ -57,6 +34,87 @@ namespace WorkLink
 
     private void Form1_Load(object sender, EventArgs e)
     {   }
+
+    private void FormStart()
+    {
+      JsonFileName = "vacancies.json";
+      VacanciList = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
+      VacanciesToView = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
+      InitializeComponent();
+
+      string JsonResumeFileName = "Resume.json";
+      Resume Resume = JsonConvert.DeserializeObject<Resume>(File.ReadAllText(JsonResumeFileName));
+
+      if (Resume.AcceptedVacancies.Count > 0)
+      {
+        label3.Text = Resume.AcceptedVacancies.Count.ToString();
+        label3.Visible = true;
+      }
+    }
+
+    private Panel CreatePanel(int key)
+    {
+      Button Button = new Button();
+      Button.Text = "Рассмотреть вакансию";
+      Button.Dock = DockStyle.Right;
+      Button.BackColor = Color.BurlyWood;
+      Button.Click += SeeVacancy;
+
+      void SeeVacancy(object sender, EventArgs e)
+      {
+        Form3 WatchVacancyForm = new Form3(VacanciesToView[key].ID);
+        WatchVacancyForm.Show();
+      }
+
+      Label name = new Label();
+      name.Text = VacanciesToView[key].Name;
+      name.Dock = DockStyle.Top;
+
+      Label sod = new Label();
+      sod.Text = VacanciesToView[key].Details;
+      sod.Location = new Point(0, 30);
+
+      Label salary = new Label();
+      salary.Text = "Зарплата: " + VacanciesToView[key].Salary;
+      salary.Dock = DockStyle.Bottom;
+
+      name.Height = 30;
+      sod.Height = 30;
+      sod.Width = 500;
+      Button.Height = 30;
+      Button.Width = 100;
+      salary.Height = 30;
+
+      Panel panel = new Panel();
+      panel.Controls.Add(name);
+      panel.Controls.Add(sod);
+      panel.Controls.Add(salary);
+      panel.Controls.Add(Button);
+      panel.Width = 845;
+      panel.BackColor = Color.Azure;
+
+      return panel;
+    }
+
+    private void CreateVacancy()
+    {
+      while (key < 5 && key >= 0 && key < VacanciesToView.Count)
+      {
+        Panel Panel = CreatePanel(key);
+        tableLayoutPanel1.Controls.Add(Panel);
+        ++key;
+      }
+    }
+
+    private void CreateVacancy(int key2)
+    {
+      while (key < key2 && key >= 0 && key < VacanciesToView.Count)
+      {
+        Panel Panel = CreatePanel(key);
+        tableLayoutPanel1.Controls.Add(Panel);
+        ++key;
+      }
+    }
 
     private void FilterByProfession(string VacancyType)
     {
@@ -70,12 +128,7 @@ namespace WorkLink
         }
       }
       key = 0;
-      while (key < 5 && key >= 0 && key < VacanciesToView.Count)
-      {
-        Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-        tableLayoutPanel1.Controls.Add(panel);
-        ++key;
-      }
+      CreateVacancy();
     }
 
     private void button1_Click(object sender, EventArgs e)
@@ -87,12 +140,7 @@ namespace WorkLink
 
     private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
     {
-      while (key < 5 && key >= 0 && key < VacanciesToView.Count)
-      {
-        Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-        tableLayoutPanel1.Controls.Add(panel);
-        ++key;
-      }
+      CreateVacancy();
     }
 
     private void button2_Click(object sender, EventArgs e)
@@ -108,22 +156,12 @@ namespace WorkLink
           key -= key % 5;
         }
 
-        while (key < key2 && key >= 0 && key < VacanciesToView.Count)
-        {
-          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-          tableLayoutPanel1.Controls.Add(panel);
-          ++key;
-        }
+        CreateVacancy(key2);
         MessageBox.Show("конец списка");
       } else
       {
         int key2 = key + 5;
-        while (key < key2 && key >= 0 && key < VacanciesToView.Count)
-        {
-          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-          tableLayoutPanel1.Controls.Add(panel);
-          ++key;
-        }
+        CreateVacancy(key2);
       }
     }
 
@@ -135,12 +173,7 @@ namespace WorkLink
       {
         int key2 = key;
         key = 0;
-        while (key < key2 && key >= 0 && key < VacanciesToView.Count)
-        {
-          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-          tableLayoutPanel1.Controls.Add(panel);
-          ++key;
-        }
+        CreateVacancy(key2);
         MessageBox.Show("конец списка");
       } else
       {
@@ -158,12 +191,7 @@ namespace WorkLink
           }
         }
         int key2 = key + 5;
-        while (key < key2 && key >= 0 && key < VacanciesToView.Count)
-        {
-          Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-          tableLayoutPanel1.Controls.Add(panel);
-          ++key;
-        }
+        CreateVacancy(key2);
       }
     }
 
@@ -177,12 +205,7 @@ namespace WorkLink
           VacanciesToView.Clear();
           VacanciesToView = JsonConvert.DeserializeObject<List<Vacancy>>(File.ReadAllText(JsonFileName));
           key = 0;
-          while (key < 5 && key >= 0 && key < VacanciesToView.Count)
-          {
-            Panel panel = VacanciList[0].CreatePanelVacancy(VacanciesToView[key].ID, VacanciesToView[key].Name, VacanciesToView[key].Details, VacanciesToView[key].Salary);
-            tableLayoutPanel1.Controls.Add(panel);
-            ++key;
-          }
+          CreateVacancy();
           break;
 
         case "Бухгалтер":
