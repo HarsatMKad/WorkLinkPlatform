@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,50 +24,6 @@ namespace WorkLink
     public void Update()
     {
       MessageBox.Show("Новая вакансия добавлена");
-    }
-
-    public Panel CreatePanelVacancy(int Item, string NameVacancy, string Details, long Salary)
-    {
-      Button Button = new Button();
-      Button.Text = "Рассмотреть вакансию";
-      Button.Dock = DockStyle.Right;
-      Button.BackColor = Color.BurlyWood;
-      Button.Click += SeeVacancy;
-
-      void SeeVacancy(object sender, EventArgs e)
-      {
-        Form3 WatchVacancyForm = new Form3(Item);
-        WatchVacancyForm.Show();
-      }
-
-      Label name = new Label();
-      name.Text = NameVacancy;
-      name.Dock = DockStyle.Top;
-
-      Label sod = new Label();
-      sod.Text = Details;
-      sod.Location = new Point(0, 30);
-
-      Label salary = new Label();
-      salary.Text = "Зарплата: " + Salary;
-      salary.Dock = DockStyle.Bottom;
-
-      name.Height = 30;
-      sod.Height = 30;
-      sod.Width = 500;
-      Button.Height = 30;
-      Button.Width = 100;
-      salary.Height = 30;
-
-      Panel panel = new Panel();
-      panel.Controls.Add(name);
-      panel.Controls.Add(sod);
-      panel.Controls.Add(salary);
-      panel.Controls.Add(Button);
-      panel.Width = 845;
-      panel.BackColor = Color.Azure;
-
-      return panel;
     }
   }
 
