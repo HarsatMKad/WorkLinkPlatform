@@ -145,5 +145,10 @@ namespace WorkLink
     {
 
     }
+
+    private void Form4_Load(object sender, EventArgs e)
+    {
+
+    }
   }
 }

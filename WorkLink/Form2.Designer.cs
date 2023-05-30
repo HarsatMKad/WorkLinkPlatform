@@ -60,6 +60,7 @@ namespace WorkLink
       this.button2 = new System.Windows.Forms.Button();
       this.label14 = new System.Windows.Forms.Label();
       this.panel2 = new System.Windows.Forms.Panel();
+      this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
       this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
       this.label25 = new System.Windows.Forms.Label();
       this.label24 = new System.Windows.Forms.Label();
@@ -84,7 +85,6 @@ namespace WorkLink
       this.button3 = new System.Windows.Forms.Button();
       this.button4 = new System.Windows.Forms.Button();
       this.label36 = new System.Windows.Forms.Label();
-      this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
       this.panel1.SuspendLayout();
       this.panel5.SuspendLayout();
       this.panel4.SuspendLayout();
@@ -498,6 +498,15 @@ namespace WorkLink
       this.panel2.Size = new System.Drawing.Size(342, 457);
       this.panel2.TabIndex = 11;
       // 
+      // maskedTextBox1
+      // 
+      this.maskedTextBox1.Location = new System.Drawing.Point(113, 145);
+      this.maskedTextBox1.Mask = "+9 999 000-0000";
+      this.maskedTextBox1.Name = "maskedTextBox1";
+      this.maskedTextBox1.Size = new System.Drawing.Size(122, 20);
+      this.maskedTextBox1.TabIndex = 25;
+      this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+      // 
       // numericUpDown3
       // 
       this.numericUpDown3.Location = new System.Drawing.Point(132, 203);
@@ -726,15 +735,6 @@ namespace WorkLink
       this.label36.Text = "Изменить ваше резюме";
       this.label36.Click += new System.EventHandler(this.label36_Click);
       // 
-      // maskedTextBox1
-      // 
-      this.maskedTextBox1.Location = new System.Drawing.Point(113, 145);
-      this.maskedTextBox1.Mask = "+9 999 000-0000";
-      this.maskedTextBox1.Name = "maskedTextBox1";
-      this.maskedTextBox1.Size = new System.Drawing.Size(122, 20);
-      this.maskedTextBox1.TabIndex = 25;
-      this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
-      // 
       // Form2
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -751,6 +751,7 @@ namespace WorkLink
       this.Controls.Add(this.button1);
       this.Name = "Form2";
       this.Text = "Form2";
+      this.Load += new System.EventHandler(this.Form2_Load);
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
       this.panel5.ResumeLayout(false);
