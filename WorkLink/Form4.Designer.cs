@@ -34,16 +34,16 @@ namespace WorkLink
       this.textBox1 = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
       this.panel1 = new System.Windows.Forms.Panel();
-      this.label3 = new System.Windows.Forms.Label();
-      this.label4 = new System.Windows.Forms.Label();
-      this.textBox3 = new System.Windows.Forms.TextBox();
-      this.label5 = new System.Windows.Forms.Label();
-      this.textBox4 = new System.Windows.Forms.TextBox();
-      this.textBox5 = new System.Windows.Forms.TextBox();
-      this.label6 = new System.Windows.Forms.Label();
-      this.button1 = new System.Windows.Forms.Button();
-      this.button2 = new System.Windows.Forms.Button();
       this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+      this.button1 = new System.Windows.Forms.Button();
+      this.label6 = new System.Windows.Forms.Label();
+      this.textBox5 = new System.Windows.Forms.TextBox();
+      this.textBox4 = new System.Windows.Forms.TextBox();
+      this.label5 = new System.Windows.Forms.Label();
+      this.textBox3 = new System.Windows.Forms.TextBox();
+      this.label4 = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
+      this.button2 = new System.Windows.Forms.Button();
       this.panel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
       this.SuspendLayout();
@@ -119,96 +119,6 @@ namespace WorkLink
       this.panel1.Visible = false;
       this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
       // 
-      // label3
-      // 
-      this.label3.AutoSize = true;
-      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.label3.Location = new System.Drawing.Point(12, 63);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(95, 24);
-      this.label3.TabIndex = 4;
-      this.label3.Text = "Зарплата";
-      // 
-      // label4
-      // 
-      this.label4.AutoSize = true;
-      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.label4.Location = new System.Drawing.Point(45, 126);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(182, 24);
-      this.label4.TabIndex = 6;
-      this.label4.Text = "Требуемые навыки";
-      // 
-      // textBox3
-      // 
-      this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.textBox3.Location = new System.Drawing.Point(21, 157);
-      this.textBox3.Multiline = true;
-      this.textBox3.Name = "textBox3";
-      this.textBox3.Size = new System.Drawing.Size(231, 126);
-      this.textBox3.TabIndex = 7;
-      // 
-      // label5
-      // 
-      this.label5.AutoSize = true;
-      this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.label5.Location = new System.Drawing.Point(295, 126);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(280, 24);
-      this.label5.TabIndex = 8;
-      this.label5.Text = "Дополнительная информация";
-      // 
-      // textBox4
-      // 
-      this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.textBox4.Location = new System.Drawing.Point(290, 157);
-      this.textBox4.Multiline = true;
-      this.textBox4.Name = "textBox4";
-      this.textBox4.Size = new System.Drawing.Size(301, 126);
-      this.textBox4.TabIndex = 9;
-      this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-      // 
-      // textBox5
-      // 
-      this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.textBox5.Location = new System.Drawing.Point(525, 41);
-      this.textBox5.Name = "textBox5";
-      this.textBox5.Size = new System.Drawing.Size(247, 29);
-      this.textBox5.TabIndex = 10;
-      // 
-      // label6
-      // 
-      this.label6.AutoSize = true;
-      this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.label6.Location = new System.Drawing.Point(521, 14);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(251, 24);
-      this.label6.TabIndex = 11;
-      this.label6.Text = "Название вашей компании";
-      // 
-      // button1
-      // 
-      this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
-      this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.button1.Location = new System.Drawing.Point(620, 202);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(141, 77);
-      this.button1.TabIndex = 12;
-      this.button1.Text = "Опубликовать";
-      this.button1.UseVisualStyleBackColor = false;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
-      // 
-      // button2
-      // 
-      this.button2.BackColor = System.Drawing.Color.RosyBrown;
-      this.button2.Location = new System.Drawing.Point(665, 7);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(96, 33);
-      this.button2.TabIndex = 5;
-      this.button2.Text = "Назад";
-      this.button2.UseVisualStyleBackColor = false;
-      this.button2.Click += new System.EventHandler(this.button2_Click);
-      // 
       // numericUpDown1
       // 
       this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -223,6 +133,96 @@ namespace WorkLink
       this.numericUpDown1.TabIndex = 13;
       this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
       // 
+      // button1
+      // 
+      this.button1.BackColor = System.Drawing.Color.DarkSeaGreen;
+      this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.button1.Location = new System.Drawing.Point(620, 202);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(141, 77);
+      this.button1.TabIndex = 12;
+      this.button1.Text = "Опубликовать";
+      this.button1.UseVisualStyleBackColor = false;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // label6
+      // 
+      this.label6.AutoSize = true;
+      this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label6.Location = new System.Drawing.Point(521, 14);
+      this.label6.Name = "label6";
+      this.label6.Size = new System.Drawing.Size(251, 24);
+      this.label6.TabIndex = 11;
+      this.label6.Text = "Название вашей компании";
+      // 
+      // textBox5
+      // 
+      this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.textBox5.Location = new System.Drawing.Point(525, 41);
+      this.textBox5.Name = "textBox5";
+      this.textBox5.Size = new System.Drawing.Size(247, 29);
+      this.textBox5.TabIndex = 10;
+      // 
+      // textBox4
+      // 
+      this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.textBox4.Location = new System.Drawing.Point(290, 157);
+      this.textBox4.Multiline = true;
+      this.textBox4.Name = "textBox4";
+      this.textBox4.Size = new System.Drawing.Size(301, 126);
+      this.textBox4.TabIndex = 9;
+      this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+      // 
+      // label5
+      // 
+      this.label5.AutoSize = true;
+      this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label5.Location = new System.Drawing.Point(295, 126);
+      this.label5.Name = "label5";
+      this.label5.Size = new System.Drawing.Size(280, 24);
+      this.label5.TabIndex = 8;
+      this.label5.Text = "Дополнительная информация";
+      // 
+      // textBox3
+      // 
+      this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.textBox3.Location = new System.Drawing.Point(21, 157);
+      this.textBox3.Multiline = true;
+      this.textBox3.Name = "textBox3";
+      this.textBox3.Size = new System.Drawing.Size(231, 126);
+      this.textBox3.TabIndex = 7;
+      // 
+      // label4
+      // 
+      this.label4.AutoSize = true;
+      this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label4.Location = new System.Drawing.Point(45, 126);
+      this.label4.Name = "label4";
+      this.label4.Size = new System.Drawing.Size(182, 24);
+      this.label4.TabIndex = 6;
+      this.label4.Text = "Требуемые навыки";
+      // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.label3.Location = new System.Drawing.Point(12, 63);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(95, 24);
+      this.label3.TabIndex = 4;
+      this.label3.Text = "Зарплата";
+      // 
+      // button2
+      // 
+      this.button2.BackColor = System.Drawing.Color.RosyBrown;
+      this.button2.Location = new System.Drawing.Point(665, 7);
+      this.button2.Name = "button2";
+      this.button2.Size = new System.Drawing.Size(96, 33);
+      this.button2.TabIndex = 5;
+      this.button2.Text = "Назад";
+      this.button2.UseVisualStyleBackColor = false;
+      this.button2.Click += new System.EventHandler(this.button2_Click);
+      // 
       // Form4
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -234,6 +234,7 @@ namespace WorkLink
       this.Controls.Add(this.label1);
       this.Name = "Form4";
       this.Text = "Form4";
+      this.Load += new System.EventHandler(this.Form4_Load);
       this.panel1.ResumeLayout(false);
       this.panel1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

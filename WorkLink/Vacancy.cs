@@ -27,24 +27,24 @@ namespace WorkLink
     }
   }
 
-  class ProgrammerVacancy : Vacancy
+  public class ProgrammerVacancy : Vacancy
   { }
 
-  class MechanicVacancy : Vacancy
+  public class MechanicVacancy : Vacancy
   { }
 
-  class OtherVacancy : Vacancy
+  public class OtherVacancy : Vacancy
   { }
 
-  class TeacherVacancy : Vacancy
+  public class TeacherVacancy : Vacancy
   { }
 
-  class AccountantVacancy : Vacancy 
+  public class AccountantVacancy : Vacancy 
   { }
 
-  class DoctorVacancy : Vacancy
+  public class DoctorVacancy : Vacancy
   { }
 
-  class WaiterVacancy : Vacancy 
+  public class WaiterVacancy : Vacancy 
   { }
 }
