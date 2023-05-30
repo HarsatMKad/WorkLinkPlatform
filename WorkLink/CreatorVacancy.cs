@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WorkLink
 {
-  abstract class CreatorVacancy 
+  public abstract class CreatorVacancy 
   {
     public abstract Vacancy FactoryMethod();
   }
 
-  class CreatorProgrammerVacancy : CreatorVacancy
+  public class CreatorProgrammerVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {
@@ -19,7 +19,7 @@ namespace WorkLink
     }
   }
 
-  class CreatorMechanicVacancy : CreatorVacancy
+  public class CreatorMechanicVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {
@@ -27,7 +27,7 @@ namespace WorkLink
     }
   }
 
-  class CreatorOtherVacancy : CreatorVacancy
+  public class CreatorOtherVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {
@@ -35,7 +35,7 @@ namespace WorkLink
     }
   }
 
-  class CreatorTeacherVacancy : CreatorVacancy
+  public class CreatorTeacherVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {
@@ -43,7 +43,7 @@ namespace WorkLink
     }
   }
 
-  class CreatorAccountantVacancy : CreatorVacancy
+  public class CreatorAccountantVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {
@@ -51,7 +51,7 @@ namespace WorkLink
     }
   }
 
-  class CreatorDoctorVacancy : CreatorVacancy
+  public class CreatorDoctorVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {
@@ -59,7 +59,7 @@ namespace WorkLink
     }
   }
 
-  class CreatorWaiterVacancy : CreatorVacancy
+  public class CreatorWaiterVacancy : CreatorVacancy
   {
     public override Vacancy FactoryMethod()
     {

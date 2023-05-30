@@ -273,5 +273,10 @@ namespace WorkLink
       Form7 InterviewSchedule = new Form7();
       InterviewSchedule.Show();
     }
+
+    private void panel1_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
   }
 }

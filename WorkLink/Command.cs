@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace WorkLink
 {
-  class Receiver
+  public class Receiver
   {
     Resume Resume;
     public Resume ChangeResume(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo)
@@ -20,7 +20,6 @@ namespace WorkLink
     public Resume SaveResume()
     {
       JsonSerializer Serializer = new JsonSerializer();
-
       using (StreamWriter Writer = new StreamWriter("Resume.json"))
       {
         JsonTextWriter JsonWriter = new JsonTextWriter(Writer) { CloseOutput = false };
@@ -37,7 +36,7 @@ namespace WorkLink
     }
   }
 
-  abstract class Command
+  public abstract class Command
   {
     public abstract Resume Execute(string LastNameFirstName, string Citizenship, string Address, string DateBirth, string Sex, string EducationInfo, string PhoneNumber, string Mail, long DesiredSalary, string Skills, string AdditionalInfo);
 
@@ -46,7 +45,7 @@ namespace WorkLink
     public abstract Resume Undo();
   }
 
-  class ConcreteCommand : Command
+  public class ConcreteCommand : Command
   {
     Resume Resume;
     Receiver receiver;
@@ -72,7 +71,7 @@ namespace WorkLink
       return Resume;
     }
   }
-  class Invoker
+  public class Invoker
   {
     Resume Resume;
     Command command;
